@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+{% for vis in visit %}
+{% if user.is_authenticated %}
+    <div class="profile__info">
+        <p>{{user}}</p>
+        <h2>У вас є запланований візит</h2>
+        <ul>
+            <li>Імя: {{vis.name}} </li>
+            <li>По-батькові: {{vis.surname}}</li>
+            <li>Вид тварини: {{vis.specAn}}</li>
+            <li>Кличка вихованця: {{vis.nameAnim}}</li>
+            <li>Причина візиту: {{vis.reason}}</li>
+            <li>Ваш номер телефону: {{vis.phone}}</li>
+            <li>Додаткова інформація: {{vis.textArea}}</li>
+        </ul>
+        {% endif %}
+{% endfor %}
+    </div>
+
+{% endblock content %}

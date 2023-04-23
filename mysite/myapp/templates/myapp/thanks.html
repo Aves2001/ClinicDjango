@@ -1,0 +1,7 @@
+{% extends 'myapp/visit.html' %}
+
+{% block thanks %}
+{% csrf_token %}
+  <p class="msg" >Дані відправлено!</p>
+
+{% endblock thanks %}

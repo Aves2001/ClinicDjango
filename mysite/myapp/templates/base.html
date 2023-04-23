@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+	<title>Клініка</title>
+</head>
+<body>
+	<div class="wrapper">
+		<!-------------------------------------------------------HEADER------------------------------------------------------------------------->
+        <header class="header">
+            <div class="header__container _container">
+                <a href="/" class="head">Головна</a>
+                <nav class="header__menu _menu">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="{% url 'services' %}">Послуги</a></li>
+                        <li class="menu__item"><a href="{% url 'visit' %}">Запланувати візит</a></li>
+                    </ul>
+                </nav>
+                <div class="header__buttons">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}">{{ user }}</a>
+                    <a href="{% url 'logout' %}">Вихід</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="login__button _b1">Вхід</a>
+                    <a href="{% url 'register' %}" class="login__button _b2">Реєстрація</a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </header>
+        {% block content %}
+        {% endblock content%}
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="auth">
+    <form action="{% url 'register'%}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+<!--        <label>Логін</label>-->
+<!--        <input type="text" name="username" placeholder="Введіть свій логін" style="margin-bottom: 9px;">-->
+<!--        <label>Пароль</label>-->
+<!--        <input type="password" name="pass" placeholder="Введіть пароль">-->
+        <button type="submit">Зареєструватися!</button>
+<!--        <p id="login">-->
+<!--            У вас немає облікового запису? - <a id="text1" href="{% url 'login' %}">авторизуйтесь!</a>-->
+<!--        </p>-->
+<!--        <a id="text1" href="/" style="align-self: center;"><p>Повернутись в головне меню</p></a>-->
+    </form>
+
+</div>
+
+{% endblock content %}

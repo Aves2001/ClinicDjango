@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main">
+		<div class="main__main-block main_block">
+			<div class="main_block__container _container">
+					<div class="main_block__title"><h3>Ветеринарна клініка</h3></div>
+			</div>
+			<div class="main_block__image _ibg">
+				<img src="{% static 'main/img/kit.jpg' %}" alt="cat">
+			</div>
+		</div>
+	</div>
+	<div class="visit">
+		<div class="visit-button visit">
+			<div class="visit__container _container">
+				<div class="visit__body">
+					<div class="visit__column">
+						<div class="visit__button">
+							<a href="{% url 'visit' %}">Запланувати візит</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-------------------------------------------------------Коротка інформація послуг клініки------------------------------------------------------------------------->
+	<div class="info">
+		<div class="info__container _container">
+			<div class="info__body">
+				<div class="info__column">
+					<div class="info__item item">
+						<div class="item__img"><img src="{% static 'main/img/lapa.jpg'%}" alt="lapa"></div>
+						<div class="item__title in">Профілактика</div>
+						<div class="item__subtitle in">Профілактика - це краще ніж лікування</div>
+					</div>
+				</div>
+				<div class="info__column">
+					<div class="info__item item">
+						<div class="item__img"><img src="{% static 'main/img/lapa.jpg'%}" alt="lapa"></div>
+						<div class="item__title in">Фахівці</div>
+						<div class="item__subtitle in">У нас працюють працівники, які люблять свою справу</div>
+					</div>
+				</div>
+				<div class="info__column">
+					<div class="info__item item">
+						<div class="item__img"><img src="{% static 'main/img/lapa.jpg'%}" alt="lapa"></div>
+						<div class="item__title in">Акції</div>
+						<div class="item__subtitle in">Акції та пропозиції для кожного</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-------------------------------------------------------Візитна карточка------------------------------------------------------------------------->
+	<div class="business-card">
+		<div class="business-card__container _container">
+			<div class="business-card__body">
+				<div class="business-card__title title">
+					<div class="title__01">Ветеринарна клініка</div>
+					<div class="title__02">Вітаємо вас на сайті нашої клініки!</div>
+				</div>
+				<div class="business-card__contacts item-contact">
+					<div class="item-contact__contact bg1">м.Чернівці</div>
+					<div class="item-contact__contact bg2">murchuk221@gmail.com</div>
+					<div class="item-contact__contact bg3">вул. Головна 9</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

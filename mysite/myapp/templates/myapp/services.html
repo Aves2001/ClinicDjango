@@ -1,0 +1,53 @@
+{% extends 'myapp/base.html' %}{% load static %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="content-row">
+				<div class="posl-content-row">
+					<h1>Послуги</h1>
+					<p>На цій строрінці ви можете переглянути доступні послуги у нашій ветеринарній клініці</p>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="content2">
+		<div class="cont-content2">
+			<div class="card" style="width: 25rem;">
+  				<img src="{% static 'main/img/shchep.jpg' %}" class="card-img-top" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title">Щеплення</h5>
+    				<p class="card-text">Щеплення допомагає захистити від потенційно смертельних хвороб</p>
+  				</div>
+			</div>
+			<div class="card" style="width: 25rem;">
+  				<img src="{% static 'main/img/ogliad.jpg' %}" class="card-img-top" style="height: 264px;" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title">Профілактичний огляд</h5>
+    				<p class="card-text">Допоможе виявити потенційну хворобу і після чого почати лікування</p>
+  				</div>
+			</div>
+			<div class="card" style="width: 25rem;">
+  				<img src="{% static 'main/img/kosm.jpg' %}" class="card-img-top" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title">Косметичні процедури</h5>
+    				<p class="card-text">По вашому бажанню можемо навести красу вашій домашній тваринці</p>
+  				</div>
+			</div>
+			<div class="card" style="width: 25rem;">
+  				<img src="{% static 'main/img/dieta.jpg' %}" class="card-img-top" style="height: 265px;" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title">Дієтолог</h5>
+    				<p class="card-text">Ветеринарнай дієтолог допоможе вам знайти найкращий раціон харчування відповідно до їх ваги, віку та потребам в енергії</p>
+  				</div>
+			</div>
+			<div class="card" style="width: 25rem;">
+  				<img src="{% static 'main/img/labor.jpg' %}" class="card-img-top" style="height: 265px;" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title">Лабораторія</h5>
+    				<p class="card-text">Введення електронного чіпа під шкіру тварини для визначення власника в разі втрати. Також чіпування необхідно вихованцям, яких вивозять за кордон.</p>
+  				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
