@@ -1,4 +1,3 @@
-import strip as strip
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordContextMixin, LoginView, LogoutView
@@ -7,7 +6,7 @@ from django.views import View
 from django.shortcuts import render, redirect
 
 from .admin import user
-from .models import Visit
+from .models import Visit, User
 
 from .forms import UserCreationForm
 
@@ -43,15 +42,15 @@ class register(View):
         return render(request, self.template_name, context)
 
 def thanks(request):
-    name = request.POST.get('name')
-    surname = request.POST.get('surname')
+    userId = request.user
+
     specAn = request.POST.get('spec_an')
     nameAnim = request.POST.get('nameAnim')
     reason = request.POST.get('reason')
     phone = request.POST.get('phone')
     textArea = request.POST.get('textArea')
-    element = Visit(name=name, surname=surname, specAn=specAn, nameAnim=nameAnim, reason=reason,
-                    phone=phone, textArea=textArea)
+    element = Visit(specAn=specAn, nameAnim=nameAnim, reason=reason,
+                    phone=phone, textArea=textArea, user_id=userId)
     element.save()
     redirect('visit')
     return render(request, 'myapp/thanks.html')
@@ -76,5 +75,5 @@ class profile(LoginRequiredMixin, View):
     def get(self, request):
         template_name = 'myapp/profile.html'
         extra_context = {'title': 'Відомості'}
-        visit = Visit.objects.all();
+        visit = Visit.objects.filter(user=self.request.user)
         return render(request, template_name, {'visit': visit})

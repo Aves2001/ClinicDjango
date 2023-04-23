@@ -6,14 +6,12 @@ class User(AbstractUser):
 
 
 class Visit(models.Model):
-    name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     specAn = models.CharField(max_length=255)
-    nameAnim = models.CharField(max_length=255)
     nameAnim = models.CharField(max_length=255)
     reason = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     textArea = models.CharField(max_length=255)
 
     def str(self):
-        return self.name
+        return self.specAn
