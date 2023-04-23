@@ -2,32 +2,20 @@
 
 {% block content %}
 <div class="container">
-        <form id="visit_form" action="{% url 'thanks_page' %}" method="POST">
+        <form id="visit_form" method="POST">
                 {% csrf_token %}
         <h4>Ветеринарна клініка</h4>
-        <input type="text" name="name" placeholder="Ваше ім'я">
-        <input type="text" name="surname" placeholder="По-Батькові">
+        {{ form.name }}
+        {{ form.middle_name }}
         <div class="select">
-                <select name="spec_an" required="">
-                        <option disabled="" selected="">Вид тварини:</option>
-                        <option value="Вакцинація">Собака</option>
-                        <option value="Огляд">Кіт</option>
-                        <option value="Косметичні процедури">Інше</option>
-                </select>
+               {{ form.specAn }}
         </div>
-
-         <input type="text" name="nameAnim" placeholder="Кличка вихованця">
+         {{ form.nameAnim }}
         <div id="select193" class="select">
-                <select name="reason" required="">
-                        <option disabled="" selected="">Причина візиту:</option>
-                        <option value="Вакцинація">Вакцинація</option>
-                        <option value="Огляд">Огляд</option>
-                        <option value="Косметичні процедури">Косметичні процедури</option>
-                        <option value="Лікування">Лікування</option>
-                </select>
+                {{ form.reason }}
         </div>
-        <input width="500px" type="text" name="phone" placeholder="Контактний номер телефону">
-        <input type="text" maxlength="300" name="textArea" placeholder="Додаткова інформація" autocomplete="off">
+            {{ form.phone }}
+            {{ form.textArea }}
         <button type="submit">Відправити дані</button>
             {% block thanks %}
             {% endblock thanks %}

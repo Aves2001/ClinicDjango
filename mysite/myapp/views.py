@@ -4,11 +4,11 @@ from django.contrib.auth.views import PasswordContextMixin, LoginView, LogoutVie
 from django.urls import reverse_lazy
 from django.views import View
 from django.shortcuts import render, redirect
-
+from django.views.generic import CreateView
 from .admin import user
 from .models import Visit, User
 
-from .forms import UserCreationForm
+from .forms import UserCreationForm, VisitForm
 
 
 class LoginUser(LoginView):
@@ -42,22 +42,20 @@ class register(View):
         return render(request, self.template_name, context)
 
 def thanks(request):
-    userId = request.user
-
-    specAn = request.POST.get('spec_an')
-    nameAnim = request.POST.get('nameAnim')
-    reason = request.POST.get('reason')
-    phone = request.POST.get('phone')
-    textArea = request.POST.get('textArea')
-    element = Visit(specAn=specAn, nameAnim=nameAnim, reason=reason,
-                    phone=phone, textArea=textArea, user_id=userId)
-    element.save()
-    redirect('visit')
     return render(request, 'myapp/thanks.html')
 
 
-def visit(request):
-    return render(request, 'myapp/visit.html')
+class VisitCreate(CreateView):
+    model = Visit
+    template_name = 'myapp/visit.html'
+    form_class = VisitForm
+    success_url = '/profile'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 def services(request):
